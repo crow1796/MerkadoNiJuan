@@ -1,0 +1,1 @@
+<div class="shop-sale-sticker">SALE</div>

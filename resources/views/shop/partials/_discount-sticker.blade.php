@@ -1,0 +1,1 @@
+<div class="item-discount-sticker">-30%</div>
