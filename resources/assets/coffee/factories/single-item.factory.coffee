@@ -4,7 +4,7 @@
 			item = {
 				'id': 1,
 				'images': [
-					'images/bg-01.jpg',
+					'images/crow-wallpaper-10.jpg',
 					'images/bg-02.jpg',
 					'images/bg-03.jpg',
 					'images/bg-04.jpg',

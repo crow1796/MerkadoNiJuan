@@ -92,7 +92,7 @@
         var item;
         item = {
           'id': 1,
-          'images': ['images/bg-01.jpg', 'images/bg-02.jpg', 'images/bg-03.jpg', 'images/bg-04.jpg', 'images/bg-04.jpg', 'images/bg-03.jpg', 'images/bg-02.jpg', 'images/bg-01.jpg'],
+          'images': ['images/crow-wallpaper-10.jpg', 'images/bg-02.jpg', 'images/bg-03.jpg', 'images/bg-04.jpg', 'images/bg-04.jpg', 'images/bg-03.jpg', 'images/bg-02.jpg', 'images/bg-01.jpg'],
           'name': 'Item 1',
           'price': 15000,
           'discount': .3,
@@ -179,9 +179,20 @@
       ContactsController.prototype.load = function() {
         return $(function() {
           $('.contact-list-container').draggable({
-            containment: 'window'
+            containment: 'window',
+            start: function(event, ui) {
+              return $('.contact-list-title').addClass('no-click');
+            },
+            stop: function(event, ui) {
+              return setTimeout(function() {
+                return $('.contact-list-title').removeClass('no-click');
+              }, 300);
+            }
           });
           $('.contact-list-title').on('click', function() {
+            if ($(this).hasClass('no-click')) {
+              return false;
+            }
             $(this).parent().parent().toggleClass('active');
             if ($(this).parent().parent().hasClass('active')) {
               $('.contact-list-title #dropdown-icon').removeClass().addClass('fa fa-caret-up dropdown-icon');
@@ -191,7 +202,11 @@
             return true;
           });
           $('.chatbox-title').on('click', function() {
+            if ($('.contact-list-title').hasClass('no-click')) {
+              return false;
+            }
             $(this).next().toggleClass('active');
+            $('.chatbox-content').scrollTop(document.getElementById('chatbox-content').scrollHeight);
             return true;
           });
           $('.contact-categories .category a').on('click', function() {
@@ -291,6 +306,14 @@
           this.imageIndex--;
         }
         this.setCurrentImage();
+        return true;
+      };
+
+      SingleItemController.prototype.sendComment = function(event) {
+        if (event.keyCode === 13 && !event.shiftKey) {
+          event.preventDefault();
+          this.commentContent = '';
+        }
         return true;
       };
 

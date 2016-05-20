@@ -5,7 +5,7 @@
 			@item = @singleItemFactory
 			@imageIndex = 0
 			@setCurrentImage(@imageIndex)
-			@commentCount = parseInt(@item.comments.length)
+			@commentCount = parseInt @item.comments.length 
 			@commentCount += parseInt $.map(@item.comments, (value, key) ->
 				value.replies.length
 			)
@@ -25,6 +25,11 @@
 			event.preventDefault()
 			@imageIndex-- if @imageIndex > 0
 			@setCurrentImage()
+			on
+		sendComment: (event) ->
+			if event.keyCode == 13 && !event.shiftKey
+				event.preventDefault()
+				@commentContent = ''
 			on
 		bookmarkItem: ->
 			on

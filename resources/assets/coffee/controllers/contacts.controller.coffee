@@ -26,10 +26,19 @@
 		load: ->
 			$ ->
 				$('.contact-list-container').draggable({
-					containment: 'window'
+					containment: 'window',
+					start: (event, ui) -> 
+						$('.contact-list-title').addClass('no-click')
+					,
+					stop: (event, ui) ->
+						setTimeout ->
+							$('.contact-list-title').removeClass('no-click')
+						, 300
 					})
 
 				$('.contact-list-title').on 'click', ->
+					if $(@).hasClass('no-click')
+						return off
 					$(this).parent().parent().toggleClass('active')
 					if $(this).parent().parent().hasClass('active')
 						$('.contact-list-title #dropdown-icon')
@@ -42,7 +51,10 @@
 					on
 
 				$('.chatbox-title').on 'click', ->
-					$(this).next().toggleClass('active');
+					if $('.contact-list-title').hasClass('no-click')
+						return off
+					$(this).next().toggleClass('active')
+					$('.chatbox-content').scrollTop(document.getElementById('chatbox-content').scrollHeight);
 					on
 
 				$('.contact-categories .category a').on 'click', ->

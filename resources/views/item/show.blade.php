@@ -44,7 +44,7 @@
 						<div class="lazy-item-details-container">
 							<h3 class="lazy-header-3 item-name">
 								@{{ singleItemVm.item.name }} <span class="badge badge-alert">@{{ singleItemVm.item.discount * 100 }}% OFF</span>
-								<button type="button" class="btn btn-xs lazy-single-item-bookmark-btn">
+								<button ng-click="singleItemVm.bookmarkItem" type="button" class="btn btn-xs lazy-single-item-bookmark-btn">
 									<span class="fa fa-bookmark"></span>
 									Bookmark
 								</button>
@@ -150,7 +150,7 @@
 						</div>{{-- /Item comments --}}
 						<div class="lazy-comment-box-container">
 							{!! Form::open(['method' => 'POST']) !!}
-								{!! Form::textarea('comment', null, ['class' => 'form-control', 'placeholder' => 'Enter your comment here...', 'rows' => 3]) !!}
+								{!! Form::textarea('comment', null, ['class' => 'form-control', 'placeholder' => 'Enter your comment here...', 'rows' => 3, 'ng-model' => 'singleItemVm.commentContent', 'ng-keypress' => 'singleItemVm.sendComment($event)']) !!}
 							{!! Form::close() !!}
 						</div>
 					</div>{{-- /Comments Container --}}

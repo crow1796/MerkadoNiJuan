@@ -9,7 +9,7 @@
 
 	<div class="container">
 	
-		<h1 class="page-header lazy-header-1 lazy-single-shop-header">Shop 1 <small>About Us</small></h1>
+		@include('shop.partials._shop-title', ['subTitle' => 'About Us'])
 
 		<div class="row">
 			<div class="col-sm-4">
