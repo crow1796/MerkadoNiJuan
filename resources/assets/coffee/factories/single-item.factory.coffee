@@ -31,7 +31,7 @@
 									voluptatibus rem quaerat perferendis! 
 									Ducimus perspiciatis tempore odio minima, 
 									rerum sapiente dolor, nihil, ut optio vitae 
-									illo. Ut, autem ipsum."
+									illo. Ut, autem ipsum.",
 						'replies': [
 							{
 								'name': 'Admin Admin',

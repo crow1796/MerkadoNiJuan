@@ -10,10 +10,25 @@
 			event.preventDefault()
 			@currentContact = contact
 			@toggled = true
+			@toggledGlobal = false
+			off
+		toggleGlobalChatbox: (event, category) ->
+			event.preventDefault()
+			if category isnt null
+				@currentCategory = category
+				@contacts = @contactsFactory[category]
+				return on
+			@contacts = @flattenService.flatten(@contactsFactory)
+			@toggledGlobal = true
+			@toggled = false
 			off
 		closeChatbox: (event) ->
 			event.stopPropagation()
 			@toggled = false
+			off
+		closeGlobalChatbox: (event) ->
+			event.stopPropagation()
+			@toggledGlobal = false
 			off
 		changeCategory: (event, category) ->
 			event.preventDefault()

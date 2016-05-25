@@ -7,7 +7,7 @@
 @section('content')
 	{{-- @include('shop.partials._shop-banner', ['shop' => 'shop', 'active' => 0]) --}}
 	<div class="container">
-		<h1 class="page-header lazy-header-1 lazy-single-shop-header">Shop 1 <small>Item Name</small></h1>
+		<h1 class="page-header lazy-header-1 lazy-single-shop-header">Item 1</h1>
 		<ol class="breadcrumb">
 			<li>
 				<a href="{{ url('/shops') }}">Shops</a>
@@ -18,9 +18,6 @@
 			<li class="active">Item 1</li>
 		</ol>
 		<div class="row">
-			<div class="col-sm-4">
-				@include('templates.partials._sub-sidebar')
-			</div>{{-- /Sidebar --}}
 
 			<div class="col-sm-8">
 				<div class="lazy-single-item-content-container" ng-controller="singleItemController as singleItemVm">
@@ -32,7 +29,9 @@
 								<a href="#" ng-click="singleItemVm.nextImageIndex($event)" class="lazy-item-image-control lazy-item-image-control-next"><span class="fa fa-caret-right"></span></a>
 
 								<div class="lazy-item-image-viewer">
-									<img ng-src="{{ url('/') }}/@{{ singleItemVm.currentImage }}" class="lazy-item-image center-block">
+									<a href="#lazy-enlarge-image-box" data-toggle="lazy-box">
+										<img ng-src="{{ url('/') }}/@{{ singleItemVm.currentImage }}" class="lazy-item-image center-block">
+									</a>
 								</div>
 							</div>
 							<div class="lazy-item-images-container">
@@ -156,8 +155,13 @@
 					</div>{{-- /Comments Container --}}
 				</div>{{-- /Single Item Content --}}
 			</div>{{-- /Col 8 --}}
+			<div class="col-sm-4">
+				@include('templates.partials._sub-sidebar')
+			</div>{{-- /Sidebar --}}
 		</div>{{-- /Row --}}
 	</div>{{-- /Container --}}
+
+	@include('templates.partials._lazy-box', ['boxId' => 'lazy-enlarge-image-box'])
 @endsection
 
 @section('footer')

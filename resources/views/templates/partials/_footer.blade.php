@@ -25,7 +25,7 @@
 							<a href="{{ url('/') }}">Home</a>
 						</li>
 						<li>
-							<a href="{{ url('/') }}">Shops</a>
+							<a href="{{ url('/shops') }}">Shops</a>
 						</li>
 						<li>
 							<a href="{{ url('/') }}">Featured Shops</a>
@@ -34,26 +34,26 @@
 							<a href="{{ url('/') }}">Featured Items</a>
 						</li>
 						<li>
-							<a href="{{ url('/') }}">FAQs</a>
+							<a href="{{ url('/faqs') }}">FAQs</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-md-3">
 					<ul>
 						<li>
-							<a href="{{ url('/') }}">Create account</a>
+							<a href="{{ url('/register') }}">Create account</a>
 						</li>
 						<li>
-							<a href="{{ url('/') }}">Sign In</a>
+							<a href="{{ url('/login') }}">Sign In</a>
 						</li>
 						<li>
-							<a href="{{ url('/') }}">Terms &amp; Conditions</a>
+							<a href="{{ url('/terms-and-conditions') }}">Terms &amp; Conditions</a>
 						</li>
 						<li>
-							<a href="{{ url('/') }}">Report</a>
+							<a href="{{ url('/report') }}">Report</a>
 						</li>
 						<li>
-							<a href="{{ url('/') }}">Sitemap</a>
+							<a href="{{ url('/sitemap') }}">Sitemap</a>
 						</li>
 					</ul>
 				</div>

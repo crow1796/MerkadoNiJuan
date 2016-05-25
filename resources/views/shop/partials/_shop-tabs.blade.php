@@ -18,5 +18,11 @@
 				Shop Settings
 			</a>
 		</li>
+		<li {{ $active == 4 ? 'class=active' : '' }}>
+			<a href="{{ url('/shops/shop-1/reviews') }}">
+				<span class="fa fa-star"></span>
+				Reviews
+			</a>
+		</li>
 	</ul>
 </div>

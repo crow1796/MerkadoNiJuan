@@ -15,6 +15,7 @@
 			@include('templates.partials._contact-list')
 			{{-- @include('templates.partials._chatboxes') --}}
 		@endif
+		@include('templates.partials._notifications-container')
 	</div>
 </body>
 </html>

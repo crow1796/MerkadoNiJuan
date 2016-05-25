@@ -14,7 +14,12 @@ html, body{
 	z-index: -1;
 }
 
+#admin-page-wrapper{
+	padding-top: 84px;
+}
+
 #page-wrapper{
+	padding-top: 84px;
 	position: relative;
 	overflow: hidden;
 }
@@ -144,7 +149,7 @@ html, body{
 		padding: 6px 0;
 		
 		a{
-			&:hover{
+			&:hover, &:active, &:focus{
 				color: white;
 			}
 		}
@@ -540,10 +545,12 @@ html, body{
 					font-weight: bold;
 					
 					.original{
+						display: block;
 						text-decoration: line-through;
 					}
 
 					.discounted{
+						display: block;
 						color: #FFCC00;
 					}
 				}
@@ -564,12 +571,12 @@ html, body{
 		position: absolute;
 		top: 0;
 		overflow: hidden;
-		right: -310px;
+		right: -410px;
 		
 		.chatbox{
 			position: static;
 			float: right;
-			width: 300px;
+			width: 400px;
 
 			&-title{
 				line-height: 40px;
@@ -597,7 +604,7 @@ html, body{
 			}
 			
 			&-content.active{
-				height: 350px !important;
+				height: 470px !important;
 			}
 
 			&-content{
@@ -610,13 +617,15 @@ html, body{
 				
 				.conversations-container{
 					margin: 10px;
-					height: 246px;
-					max-height: 246px;
+					height: 366px;
+					max-height: 366px;
 					box-sizing: border-box;
 					padding: 10px;
 					overflow-y: auto;
 					background-color: rgba(204, 202, 202, 0.18);
 					
+					@include scrollBar(#FFCC00)
+
 					.conversations{
 						.message-container{
 							display: block;
@@ -715,6 +724,11 @@ html, body{
 
 	&shop-contact-overview{
 		.contact-info{
+			&-owner{
+				margin: 0;
+				padding: 10px 0 0 0;
+			}
+
 			&-address{
 				margin: 0;
 				padding: 10px 0 0 0;
@@ -737,6 +751,7 @@ html, body{
 	}
 
 	&shop-ratings-star{
+		font-size: 1.6em;
 	}
 
 	&shop-ratings-container{
@@ -1030,8 +1045,611 @@ html, body{
 			}
 		}
 	}
+
+	&auth-container{
+		padding: 90px 0;
+	}
+
+	&ads{
+		&-container{
+			width: 100%;
+			img{
+				width: 100%;
+			}
+		}
+	}
+
+	&shop-recent-reviews-container{
+		.lazy-shop-recent-review{
+			margin-bottom: 0;
+			font-size: .89em;
+		}
+	}
+
+	&home-sidebar{
+		margin-top: 40px;
+	}
+
+	&item-feed-body{
+		max-height: 450px;
+		overflow: auto;
+		@include scrollBar(#FFCC00)
+	}
+
+	&item-feed-container{
+		.item-feed{
+			min-height: 150px;
+			max-height: 215px;
+			overflow: hidden;
+			position: relative;
+			margin: 10px 0;
+			
+			.item-link{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				color: #222;
+				background: linear-gradient(rgba(#fff, .3), #fff);
+				text-align: center;
+				font-size: 1.4em;
+				padding: 5px;
+				height: 60%;
+				transition: all .3s ease;
+				line-height: 111px;
+				
+				&:hover, &:active, &:focus{
+					background: #222;
+					color: #222;
+					padding-left: 40px;
+					background: linear-gradient(rgba(#fff, 1), #fff);
+					text-decoration: none;
+				}
+			}
+			&-user{
+				background: white;
+				width: 100%;
+				padding: 5px;
+				margin-bottom: 5px;
+				.user-thumbnail-container{
+					.user {
+						&-thumbnail{
+							width: 30px;
+							height: 30px;
+							object-fit: cover;
+							border-radius: 50%;
+						}
+
+						&-name{
+							font-weight: bold;
+						}
+
+						&-posted_at{
+							
+						}
+					}
+				}
+			}
+
+			&-content{
+				width: 100%;
+				padding: 0 30px;
+				img{
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&dropdown-menu{
+		border-radius: 0;
+	}
+
+	&sidebar-menu-container{
+		max-height: 350px;
+		overflow: auto;
+		@include scrollBar(darken(#FFCC00, 10%))
+
+		.lazy-sidebar-menu{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li{
+				a{
+					color: white;
+					padding: 12px 30px;
+					display: block;
+					
+					&:hover, &:active, &:focus{
+						text-decoration: none;
+						background: #FFCC00;
+						color: #222;
+					}
+				}
+			}
+
+			li.active{
+				a{
+					text-decoration: none;
+					background: #FFCC00;
+					color: #222;
+					
+					&:hover, &:active, &:focus{
+						text-decoration: none;
+						background: #FFCC00;
+						color: #222;
+					}
+
+					.lazy-dropdown-caret{
+						transform: rotate(180deg);
+					}
+				}
+			}
+
+			li.lazy-sidebar-dropdown{
+				transition: all .3s ease;
+				position: relative;
+				.lazy-sidebar-dropdown-menu{
+					transition: all .3s ease;
+					overflow: hidden;
+					list-style: none;
+					padding: 0;
+					margin: 0;
+					li{
+						transition: all .3s ease;
+						height: 0;
+						a{
+							padding-left: 60px;
+							background: darken(#222, 5%);
+							color: white;
+							
+							&:hover, &:active, &:focus{
+								background: $c2;
+								color: #222;
+							}
+						}
+					}
+				}
+			}
+
+			li.lazy-sidebar-dropdown.active{
+				.lazy-sidebar-dropdown-menu{
+					height: auto;
+					li{
+						height: 44px;
+					}
+				}
+			}
+		}
+	}
+
+	&shop-info-container{
+
+		.shop-location-img{
+			width: 100%;	
+		}
+
+		.info-group{
+			.info-label{
+				margin: 15px 0 5px 0;
+			}
+
+			.info-control{
+				padding: 8px;
+				border-radius: 6px;
+				border: 1px solid #dfdfdf;
+			}
+		}
+	}
+
+	&box-wrapper.active{
+		display: block !important;
+	}
+
+	&box-wrapper{
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 2002;
+		background: rgba(#222, .7);
+		.lazy-box-container{
+			.lazy-box-content{
+				background: #111;
+				position: absolute;
+				width: 80%;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				
+				img{
+					width: 100%;
+					height: 500px;
+					object-fit: contain;
+				}
+			}
+		}
+	}
+
+	&selected-featured-items{
+		min-height: 311.05px;
+	}
+
+	&single-item{
+		display: block;
+		background: $c2;
+		padding: 10px 10px 20px 10px;
+		box-shadow: 0px 0px 5px #222;
+		margin: 0 0 20px 0;
+		position: relative;
+		overflow: hidden;
+
+		.item-discount-sticker{
+			position: absolute;
+			width: 80%;
+			background: #EA3810;
+			box-shadow: 0px 1px 3px #222;
+			color: #fff;
+			font-weight: bold;
+			left: -20%;
+			transform: rotate(-30deg);
+			padding: 6px;
+			box-sizing: border-box;
+			text-align: center;
+			font-size: 1.4em;
+		}
+
+		.item-status-sticker{
+			position: absolute;
+			box-shadow: 0px 1px 3px #222;
+			color: #fff;
+			font-weight: bold;
+			left: 0;
+			top: 40%;
+			height: 0;
+			width: 80%;
+			transform: translate(0, -40%);
+			text-align: center;
+			
+			.status-text{
+				background: #EA3810;
+				padding: 6px;
+				font-size: 1.3em;
+				display: block;
+			}
+		}
+
+		&-bookmark{
+			display: block;
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 0;
+			right: 15px;
+			font-size: 1.3em;
+			border-radius: 50%;
+			background: #F37154;
+			color: white;
+			text-align: center;
+			line-height: 40px;
+			transition: all .3s ease;
+
+			&:hover, &:active, &:focus{
+				color: white;
+				background: darken(#F37154, 15%);
+				box-shadow: 0px 0px 4px #222;
+				transform: scale(1.1);
+			}
+		}
+		
+		&:hover, &:active, &:focus{
+			text-decoration: none;
+			outline: 3px solid #222;
+		}
+		.item-thumbnail{
+			width: 100%;
+			height: auto;
+			img{
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.item-info{
+			margin-top: 10px;
+			
+			&-stocks{
+				display: block;
+			}
+
+			&-name{
+				display: block;
+				font-weight: bold;
+				padding-bottom: 8px;
+			}
+
+			&-price{
+				display: block;
+				padding-bottom: 5px;
+				font-size: 1.2em;
+				font-weight: bold;
+				
+				.original{
+					display: block;
+					text-decoration: line-through;
+				}
+
+				.discounted{
+					display: block;
+					color: #FFCC00;
+				}
+			}
+
+			&-update{
+				display: block;
+			}
+
+			&-location{
+				display: block;
+			}
+		}
+	}
+
+	&featured-item-selections{
+		padding-top: 20px;
+		border-top: 1px solid #dfdfdf;
+		.lazy-single-item{
+			display: inline-block;
+			width: 19%;
+			margin: 2px;
+			font-size: .8em;
+			height: auto;
+		}
+	}
+
+	&form-control{
+		border-radius: 0;
+		resize: none;
+		
+		&:hover, &:active, &:focus{
+			border-color: #222;
+		}
+
+		&:focus{
+			box-shadow: 0px 0px 4px #dfdfdf;
+		}
+	}
+
+	&shop-reviews-container{
+		.lazy-shop-reviews{
+			.lazy-shop-single-review{
+				padding: 8px 8px 15px 8px;
+				border-bottom: 1px solid #afafaf;
+				.reviewer-info{
+					.reviewer-thumbnail{
+						width: 50px;
+						height: 50px;
+						object-fit: cover;
+						border-radius: 50%;
+					}
+
+					.reviewer-name{
+						color: #222;
+						font-weight: bold;
+						&:hover, &:active, &:focus{
+							text-decoration: none;
+							color: #222;
+						}
+					}
+
+					.reviewed-at{
+						padding: 0 8px;
+					}
+
+					.reviewer-rate{
+					}
+				}
+				
+				.review-comment{
+					padding-left: 50px;
+					overflow: hidden;
+					position: relative;
+					transition: all .3s ease;
+					.comment-read-more{
+						transition: all .3s ease;
+						position: absolute;
+						width: 100%;
+						background: linear-gradient(rgba(255, 255, 255, .5), white);
+						bottom: 0;
+						padding: 10px;
+						cursor: pointer;
+						text-align: center;
+						
+						&:hover{
+							color: #EA3810;
+						}
+
+						span{
+							display: block;
+						}
+					}
+
+					.comment-read-more.active{
+						width: 45px;
+						left: 0;
+						color: white;
+						padding: 5px;
+						background: #222;
+						border-radius: 5px;
+					}
+				}
+				.review-comment:not(.active){
+					max-height: 100px;
+				}
+				.review-comment.active{
+					max-height: 5000px;
+				}
+			}
+		}
+	}
+	&notifications-wrapper.active{
+		right: 0 !important;
+	}
+	&notifications-wrapper{
+		transition: all .3s ease;
+		position: fixed;
+		background: #f7f7f7;
+		width: 300px;
+		padding: 8px;
+		top: 120px;
+	    box-shadow: 2px 1px 5px #222;
+		right: -300px;
+		.notifications-toggle{
+			display: block;
+			width: 50px;
+			height: 50px;
+			left: -50px;
+			position: absolute;
+			background: #FFCC00;
+			text-align: center;
+			line-height: 50px;
+			font-size: 1.5em;
+			color: #222;
+			top: 0;
+			box-shadow: -1px 0px 2px #222;
+			.badge{
+				position: absolute;
+				left: -15px;
+				top: -5px;
+			}
+		}
+
+		.notifications-container{
+			.notifications-title{
+			}
+			.notifications{
+				max-height: 368px;
+				overflow: auto;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				@include scrollBar(#FFCC00)
+
+				.single-notification{
+					max-height: 100px;
+					overflow: hidden;
+					a{
+						border-bottom: 1px solid #dfdfdf;
+						color: #222;
+						display: block;
+						padding: 7px;
+						.notifier-info{
+							.notifier-thumbnail{
+								width: 40px;
+								height: 40px;
+								object-fit: cover;
+								border-radius: 50%;
+							}
+
+							.notifier-name{
+								
+							}
+
+							.notifier-thumbnail{
+								
+							}
+						}
+
+						.notification-content{
+							padding-left: 40px;
+							font-size: .9em;
+						}
+
+						&:hover, &:active, &:focus{
+							text-decoration: none;
+							background: rgba(204, 202, 202, 0.18);
+						}
+					}
+				}
+			}
+		}
+	}
 }
 // Lazy
+
+#lazy-sidebar-admin-toggle{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 50px;
+	width: 50px;
+	border: 0;
+	background: #EA3810;
+	color: white;
+	font-size: 2em;
+	z-index: 2000;
+	
+	&:hover, &:active, &:focus{
+		outline: 0;
+		background: darken(#EA3810, 5%);
+	}
+}
+
+#admin-page-content.toggled{
+	padding-left: 300px;
+	.lazy-sidebar-admin-container{
+		width: 300px !important;
+	}
+}
+
+#admin-page-content{
+	transition: all .4s ease;
+	.lazy-sidebar-admin-container{
+		transition: all .4s ease;
+		left: 0;
+		width: 0;
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		background: #222;
+		z-index: -1;
+		padding-top: 78px;
+
+		.lazy-sidebar-user-container{
+			width: 80%;
+			margin: 0 auto;
+			.lazy-sidebar-user-thumbnail-container{
+				width: 100%;
+				text-align: center;
+				.lazy-sidebar-user-thumbnail{
+					border-radius: 50%;
+					width: 160px;
+					height: 160px;
+					border: 4px solid #EA3810;
+					object-fit: cover;
+				}
+			}
+		}
+
+		.lazy-sidebar-user-info-container{
+			padding: 5px 0;
+			color: #FFCC00;
+			.user-name{
+				display: block;
+				text-align: center;
+			}
+
+			.user-role{
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+}
 
 .shop-followers{
 	font-size: .35em !important;
@@ -1178,6 +1796,12 @@ a{
 		padding: 0 20px;
 		line-height: 40px;
 		font-weight: bold;
+		
+		.badge-alert{
+			font-size: 1em;
+			left: -15px;
+			top: -15px;
+		}
 	}
 
 	.contact-list{
@@ -1188,6 +1812,7 @@ a{
 		width: 300px;
 		box-shadow: 0px 2px 5px #222;
 		overflow: auto;
+		@include scrollBar(#FFCC00)
 		.contact{
 			height: 0;
 			overflow: hidden;
@@ -1353,5 +1978,24 @@ a{
 			}
 		}
 	}
+}
+
+#login-page-wrapper{
+	background: #222;
+}
+
+#admin-logout-btn{
+	&:hover, &:active, &:focus{
+		color: white;
+	}
+}
+
+#lazy-auth-body, #login-page-wrapper{
+	background: url('../images/bg-01.jpg');
+	background-size: cover;
+}
+
+[href="#lazy-enlarge-image-box"]{
+	cursor: zoom-in;
 }
 @import 'partials/_responsive.scss';

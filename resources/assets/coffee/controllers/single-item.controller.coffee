@@ -18,11 +18,19 @@
 			on
 		nextImageIndex: (event) ->
 			event.preventDefault()
-			@imageIndex++ if @imageIndex < @item.images.length - 1
+			if @imageIndex == (@item.images.length - 1)
+				@imageIndex = 0 
+				@setCurrentImage()
+				return off
+			@imageIndex++ if @imageIndex < @item.images.length
 			@setCurrentImage()
 			on
 		prevImageIndex: (event) ->
 			event.preventDefault()
+			if @imageIndex == 0
+				@imageIndex = (@item.images.length - 1) 
+				@setCurrentImage()
+				return off
 			@imageIndex-- if @imageIndex > 0
 			@setCurrentImage()
 			on

@@ -1,4 +1,4 @@
-<div class="shop-banner-container">
+<div class="shop-banner-container" ng-controller="shopBannerController as shopBannerVm">
 	<div class="shop-carousel">
 		<div id="shop-carousel" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
@@ -19,7 +19,9 @@
 	<div class="lazy-shop-display-image-wrapper">
 		@include('shop.partials._shop-tabs', ['shop' => 'shop', 'active' => $active])
 		<div class="lazy-shop-display-image-container">
-			<img src="{{ url('/images/bg-01.jpg') }}" alt="Shop 1" class="lazy-shop-display-image img-responsive">
+			<a href="#lazy-shop-dp-box" data-toggle="lazy-box">
+				<img src="{{ url('/images/bg-01.jpg') }}" alt="Shop 1" class="lazy-shop-display-image img-responsive">
+			</a>
 			{{-- <div id="lazy-shop-settings-dropdown" class="dropdown">
 				<a href="#" data-toggle="dropdown">
 					<span class="fa fa-cog"></span>
@@ -34,3 +36,5 @@
 		</div>
 	</div>
 </div>
+
+@include('templates.partials._lazy-box', ['boxId' => 'lazy-shop-dp-box'])

@@ -18,6 +18,83 @@
 			</li>
 		</ol>
 		<div class="row clearfix">
+			
+
+			<div class="col-sm-8">
+				<div class="row lazy-shop-items-container">
+					<div class="col-sm-4">
+						<a href="{{ url('/shops/shop-1/items/item-1') }}" class="lazy-single-item">
+							{{-- @include('shop.partials._discount-sticker') --}}
+							{{-- @include('shop.partials._item-status') --}}
+							@include('shop.partials._item-featured')
+							<div class="item-thumbnail text-center">
+								<img src="{{ url('/images/bg-01.jpg') }}" class="img-response center-block">
+							</div>
+							<div class="item-info">
+								<span class="item-info-name">
+									Item 1
+								</span>
+								<span class="item-info-price">
+									<span class="original">@{{ 15000 | currency:'&#8369; ' }}</span> 
+									<span class="discounted">@{{ 10500 | currency:'&#8369; ' }}</span>
+								</span>
+								<small class="item-info-stocks">
+									<span class="fa fa-cubes"></span>
+									15 left
+								</small>
+								<small class="item-info-updated">
+									<span class="fa fa-clock-o"></span>
+									1 hour ago
+								</small>
+								<small class="item-info-location">
+									<span class="fa fa-map-marker"></span>
+									Cagayan de Oro city
+								</small>
+							</div>{{-- /Item Info --}}
+							<a href="#" class="lazy-single-item-bookmark" title="Bookmark this item">
+								<span class="fa fa-star"></span>
+							</a>
+						</a>{{-- /Single item --}}
+					</div>{{-- /single item col --}}
+				</div>{{-- /Featured Items Container --}}
+				<div class="row lazy-shop-items-container">
+					<div class="col-sm-4">
+						<a href="{{ url('/shops/shop-1/items/item-1') }}" class="lazy-single-item">
+							@include('shop.partials._discount-sticker')
+							@include('shop.partials._item-status')
+							<div class="item-thumbnail text-center">
+								<img src="{{ url('/images/bg-01.jpg') }}" class="img-response center-block">
+							</div>
+							<div class="item-info">
+								<span class="item-info-name">
+									Item 1
+								</span>
+								<span class="item-info-price">
+									<span class="original">@{{ 15000 | currency:'&#8369; ' }}</span> 
+									<span class="discounted">@{{ 10500 | currency:'&#8369; ' }}</span>
+								</span>
+								<small class="item-info-stocks">
+									<span class="fa fa-cubes"></span>
+									15 left
+								</small>
+								<small class="item-info-updated">
+									<span class="fa fa-clock-o"></span>
+									1 hour ago
+								</small>
+								<small class="item-info-location">
+									<span class="fa fa-map-marker"></span>
+									Cagayan de Oro city
+								</small>
+							</div>{{-- /Item Info --}}
+							<a href="#" class="lazy-single-item-bookmark" title="Bookmark this item">
+								<span class="fa fa-star"></span>
+							</a>
+						</a>{{-- /Single item --}}
+					</div>{{-- /single item col --}}
+				</div>{{-- /Items Container --}}
+
+				@include('templates.partials._pagination')
+			</div>{{-- /Col 8 --}}
 			<div class="col-sm-4">
 				<div class="panel panel-default lazy-panel">
 						<div class="panel-heading">
@@ -45,46 +122,6 @@
 				</div>{{-- /Panel --}}
 				@include('templates.partials._sub-sidebar')
 			</div>{{-- /Sidebar --}}
-
-			<div class="col-sm-8">
-				<div class="row lazy-shop-items-container">
-					<div class="col-sm-4">
-						<a href="{{ url('/shops/shop-1/items/item-1') }}" class="lazy-single-item">
-							@include('shop.partials._discount-sticker')
-							@include('shop.partials._item-status')
-							<div class="item-thumbnail text-center">
-								<img src="{{ url('/images/bg-01.jpg') }}" class="img-response center-block">
-							</div>
-							<div class="item-info">
-								<span class="item-info-name">
-									Item 1
-								</span>
-								<span class="item-info-price">
-									&#8369; <span class="original">15,000</span> - 
-									<span class="discounted">10,500</span>
-								</span>
-								<small class="item-info-stocks">
-									<span class="fa fa-cubes"></span>
-									15 left
-								</small>
-								<small class="item-info-updated">
-									<span class="fa fa-clock-o"></span>
-									1 hour ago
-								</small>
-								<small class="item-info-location">
-									<span class="fa fa-map-marker"></span>
-									Cagayan de Oro city
-								</small>
-							</div>{{-- /Item Info --}}
-							<a href="#" class="lazy-single-item-bookmark" title="Bookmark this item">
-								<span class="fa fa-star"></span>
-							</a>
-						</a>{{-- /Single item --}}
-					</div>{{-- /single item col --}}
-				</div>{{-- /Items Container --}}
-
-				@include('templates.partials._pagination')
-			</div>{{-- /Col 8 --}}
 		</div>{{-- /Row --}}
 	</div>{{-- /Container --}}
 @endsection
